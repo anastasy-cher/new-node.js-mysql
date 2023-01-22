@@ -1,10 +1,11 @@
 const mysql = require('mysql')
+const {HOST, USER, PASSWORD, DATABASE} = require('./config')
 
 module.exports = () =>{
     return mysql.createConnection({
-        host: 'localhost',
-        user: 'root',
-        password: '1234',
-        database: 'news_portal'
+        host: HOST,
+        user: USER,
+        password: PASSWORD,
+        database: DATABASE  
     })
 }
