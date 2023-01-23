@@ -5,40 +5,55 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+    
+    <link rel="stylesheet" href="/stylesheets/mystyle.css">
 
     <title>NEWS</title>
 </head>
 <body>
-    <nav class>
-        <a href="#">NEWS</a>
+    <nav>
+        <p class="shadow-white">NEWS</p>
+        <p class="shadow-red">NEWS</p>
+        <p class="shadow-white">NEWS</p>
+        <p class="shadow-red">NEWS</p>
+        <p class="shadow-white">NEWS</p>
+        <a href="/">INICIO</a>
+        <p class="shadow-white">NEWS</p>
+        <p class="shadow-red">NEWS</p>
+        <p class="shadow-white">NEWS</p>
+        <p class="shadow-red">NEWS</p>
     </nav>
-    <div>
-        <div class="row">
-            <div>
-                <table class="table table-striped table-bordered">
+    <div id="sec2">
+        <img id="textura" src="https://static.vecteezy.com/system/resources/previews/013/822/789/original/gold-glittering-stars-dust-and-bokeh-background-abstract-christmas-glow-light-texture-png.png">
+        <div id="left">
+            <table>
+                <tr>
+                    <th>Nº</th>
+                    <th>TITULO</th>
+                    <th>NOTICIA</th>
+                </tr>
+                <% for(let i=0; i < news.length; i++){ %>
                     <tr>
-                        <th>ID</th>
-                        <th>TITLE</th>
-                        <th>NEWS</th>
+                        <td><%= news[i].id_news%> </td>
+                        <td><%= news[i].title%> </td>
+                        <td><%= news[i].news%> </td>
                     </tr>
-                    <% for(let i=0; i < news.length; i++){ %>
-                        <tr>
-                            <td><%= news[i].id_news%> </td>
-                            <td><%= news[i].title%> </td>
-                            <td><%= news[i].news%> </td>
-                        </tr>
     
-                    <%}%>
-                </table>
+                <%}%>
+            </table>
+            <div id="botones">
+                <a href="/news?new=<%=news[0].id_news-4%>" class="bot_news2">ATRAS</a>
+                <a href="/news?new=<%=news[news.length-1].id_news+1%>" class="bot_news2">SIGUIENTE</a>
             </div>
-        </div>
-        <a href="/news?new=<%=news[0].id_news-4%>">atras</a>
-        <a href="/news?new=<%=news[news.length-1].id_news+1%>">siguiente</a>
 
-        <div>
+        </div>
+
+        <div id="rigth">
             <form action="/news" method="post">
-                <h3>Add news</h3>
+                <h3>ESCRIBE NUEVA NOTICIA</h3>
                 <div>
                     <input type="text" name="title" autofocus="autofocus" placeholder="News Title">
                 </div>
@@ -47,9 +62,18 @@
                 </div>
                 <input type="submit">
             </form>
+            <a href="/" class="bot_news">INICIO</a>
+
     
         </div>
     </div>
+
+    <footer>
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-square-facebook"></i>
+        <i class="fa-brands fa-square-twitter"></i>
+        
+      </footer>
 
 
 
