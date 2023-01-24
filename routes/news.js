@@ -3,24 +3,26 @@ const router = express.Router();
 const dbConnection = require('../config/dbConnection')
 const connection = dbConnection()
 
-/* GET home page. */
+
 router.get('/', function(req, res, next) {
   console.log(req.query)
-
-  let limite = req.query.new-1
   
-  if(!limite){
+  let limite = req.query.new-1
+  console.log("limite",limite)
+  
+  if(!limite || limite<0){
     limite=0
   }
 
-  console.log("limite",limite)
-  connection.query(`SELECT * FROM news LIMIT ${limite},5`, (error, result) =>{
+  // connection.query("select id_news from news ORDER BY id_news DESC;",(error,result) => {
+    
+  // })
+
+  connection.query(`SELECT * FROM news LIMIT ${limite},3`, (error, result) =>{
       
     res.render('news/news', {
         news: result
-
     })
-
   })
 });
 

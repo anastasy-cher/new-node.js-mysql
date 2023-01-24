@@ -8,6 +8,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     
     <link rel="stylesheet" href="/stylesheets/mystyle.css">
 
@@ -15,37 +17,38 @@
 </head>
 <body>
     <nav>
-        <p class="shadow-white">NEWS</p>
-        <p class="shadow-red">NEWS</p>
-        <p class="shadow-white">NEWS</p>
-        <p class="shadow-red">NEWS</p>
-        <p class="shadow-white">NEWS</p>
-        <a href="/">INICIO</a>
-        <p class="shadow-white">NEWS</p>
-        <p class="shadow-red">NEWS</p>
-        <p class="shadow-white">NEWS</p>
-        <p class="shadow-red">NEWS</p>
+        <p class="shadow-white animate__fadeInDown">NEWS</p>
+        <p class="shadow-red animate__fadeInDown">NEWS</p>
+        <p class="shadow-white animate__fadeInDown">NEWS</p>
+        <p class="shadow-red animate__fadeInDown">NEWS</p>
+        <p class="shadow-white animate__fadeInDown">NEWS</p>
+        <a href="/" class="animate__fadeInDown">INICIO</a>
+        <p class="shadow-white animate__fadeInDown">NEWS</p>
+        <p class="shadow-red animate__fadeInDown">NEWS</p>
+        <p class="shadow-white animate__fadeInDown">NEWS</p>
+        <p class="shadow-red animate__fadeInDown">NEWS</p>
     </nav>
     <div id="sec2">
-        <img id="textura" src="https://static.vecteezy.com/system/resources/previews/013/822/789/original/gold-glittering-stars-dust-and-bokeh-background-abstract-christmas-glow-light-texture-png.png">
         <div id="left">
-            <table>
-                <tr>
-                    <th>Nº</th>
-                    <th>TITULO</th>
-                    <th>NOTICIA</th>
-                </tr>
-                <% for(let i=0; i < news.length; i++){ %>
+                <table>
                     <tr>
-                        <td><%= news[i].id_news%> </td>
-                        <td><%= news[i].title%> </td>
-                        <td><%= news[i].news%> </td>
+                        <th>Nº</th>
+                        <th>TITULO</th>
+                        <th>NOTICIA</th>
+                        <th>FECHA</th>
                     </tr>
-    
-                <%}%>
-            </table>
+                    <% for(let i=0; i < news.length; i++){ %>
+                        <tr>
+                            <td><%= news[i].id_news%> </td>
+                            <td><%= news[i].title%> </td>
+                            <td><%= news[i].news%> </td>
+                            <td><%= news[i].data_created %> </td>
+                        </tr>
+                    <%}%>
+                </table>
+
             <div id="botones">
-                <a href="/news?new=<%=news[0].id_news-4%>" class="bot_news2">ATRAS</a>
+                <a href="/news?new=<%=news[0].id_news-3%>" class="bot_news2">ATRAS</a>
                 <a href="/news?new=<%=news[news.length-1].id_news+1%>" class="bot_news2">SIGUIENTE</a>
             </div>
 
@@ -53,16 +56,16 @@
 
         <div id="rigth">
             <form action="/news" method="post">
-                <h3>ESCRIBE NUEVA NOTICIA</h3>
                 <div>
-                    <input type="text" name="title" autofocus="autofocus" placeholder="News Title">
+                    <h3>ESCRIBE NUEVA NOTICIA</h3>
+                        <input type="text" name="title" autofocus="autofocus" class="formulario" placeholder="ESCRIBE EL TÍTULO">
+                        <input type="text" name="news" class="formulario" placeholder="ESCRIBE EL CONTENIDO">
                 </div>
-                <div>
-                    <input type="text" name="news" class="form-control" placeholder="News content">
+                <div class="botones">
+                    <input type="submit" id="sub" value="ENVIAR">
+                    <a href="/" class="bot_news2">INICIO</a>
                 </div>
-                <input type="submit">
             </form>
-            <a href="/" class="bot_news">INICIO</a>
 
     
         </div>
