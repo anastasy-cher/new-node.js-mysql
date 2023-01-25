@@ -147,11 +147,12 @@ h1{
 }
 #left{
     background: transparent;
-    width: 70%;
+    width: 65%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    padding: 3rem 0;
 }
 #botones{
     display: flex;
@@ -174,7 +175,7 @@ h1{
 table{
     background: #55666b;
     opacity: .9;
-    margin: 0 3rem;
+    margin: 0 1rem;
 }
 
 th{
@@ -189,16 +190,15 @@ td{
 
 #rigth{
     background: transparent;
-    padding: 0 3rem 0 .5rem;
-    width: 30%;
+    padding: 3rem 1rem 3rem .5rem;
+    width: 35%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 form{
-    /* #55666b */
-    height: 23rem;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;

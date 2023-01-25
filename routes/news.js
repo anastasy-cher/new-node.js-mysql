@@ -14,17 +14,25 @@ router.get('/', function(req, res, next) {
     limite=0
   }
 
-  // connection.query("select id_news from news ORDER BY id_news DESC;",(error,result) => {
+  connection.query("select id_news from news ORDER BY id_news DESC LIMIT 1;",(error,result) => {
+    console.log(result)
+    if(limite>=result[0].id_news){
+      console.log("es mayor",limite)
+      limite=result[0].id_news-3
+    }
     
-  // })
-
-  connection.query(`SELECT * FROM news LIMIT ${limite},3`, (error, result) =>{
-      
-    res.render('news/news', {
-        news: result
+    console.log(limite)
+    connection.query(`SELECT * FROM news LIMIT ${limite},3`, (error, result) =>{
+        
+      res.render('news/news', {
+          news: result
+      })
     })
-  })
-});
+  });
+
+})
+
+
 
 router.post('/', function(req, res, next) {
 
