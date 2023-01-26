@@ -1,7 +1,7 @@
 CREATE DATABASE news_portal;
 USE news_portal;
 
-CREATE TABLE new(
+CREATE TABLE news(
     id_news INT UNSIGNED AUTO_INCREMENT NOT NULL PRIMARY KEY,
     title VARCHAR(100),
     news TEXT,
