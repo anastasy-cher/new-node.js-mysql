@@ -48,8 +48,13 @@
                 </table>
 
             <div id="botones">
+                <% if(atras) {%>
                 <a href="/news?new=<%=news[0].id_news-3%>" class="bot_news2">ATRAS</a>
+                <% } %>
+
+                <% if(siguiente){ %>
                 <a href="/news?new=<%=news[news.length-1].id_news+1%>" class="bot_news2">SIGUIENTE</a>
+                <% } %>
             </div>
         </div>
 
